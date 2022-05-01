@@ -242,6 +242,8 @@ namespace CheckPointTracConnector
                 _contextMenuStrip.Items.Clear();
                 _contextMenuStrip.Items.AddRange(connItems.ToArray());
                 _contextMenuStrip.Items.Add(new ToolStripSeparator());
+                _contextMenuStrip.Items.Add(new ToolStripMenuItem("Отключить от VPN", null, DisconnectFromCurrentSite, "Disconnect"));
+
                 _contextMenuStrip.Items.Add("Обновить список сайтов", null, RefreshSites);
                 if (CheckForStartup())
                 {
@@ -260,8 +262,20 @@ namespace CheckPointTracConnector
                 _trayIcon.Visible = true;
             }
 
+            var disconnectItem = _contextMenuStrip.Items.Find("Disconnect", true)[0];
+            disconnectItem.Enabled = _connList.ContainsValue(ConnectionState.Connected) ||
+                                     _connList.ContainsValue(ConnectionState.Connecting);
+
+
             ConnectionMenuItemsEnable(_contextMenuStrip, !currentStateIsConnecting);
         }
+
+        private void DisconnectFromCurrentSite(object sender, EventArgs e)
+        {
+            Disconnect();
+            FillContextMenu();
+        }
+
         private void CheckExecAbility()
         {
             var fileInfo = new FileInfo(Settings.Default.ExecFileName);
