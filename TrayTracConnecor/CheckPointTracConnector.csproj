@@ -25,13 +25,13 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <InstallUrl>https://github.com/anshumov/TrayTracConnector/raw/main/Deploying/</InstallUrl>
+    <InstallUrl>https://raw.githubusercontent.com/anshumov/TrayTracConnector/master/Deploying/</InstallUrl>
     <UpdateUrl>\\rni-10\Отдел ПР 1С\CheckPointConnector\</UpdateUrl>
     <ProductName>CheckPoint Connector</ProductName>
     <PublisherName>Sibintek LLC</PublisherName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>10</ApplicationRevision>
+    <ApplicationRevision>11</ApplicationRevision>
     <ApplicationVersion>0.1.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
